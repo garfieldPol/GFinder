@@ -10,12 +10,8 @@ public class Gift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-
-//    @Column(name = "id")
-     private int id;
-//    @Column(name = "giftName")
+    private int id;
     private String giftName;
-//    @Column(name = "ageGroup")
     private int ageGroup;
 
     public Gift(int id,
@@ -26,7 +22,8 @@ public class Gift {
         this.ageGroup = ageGroup;
     }
 
-    public Gift() {}
+    public Gift() {
+    }
 
 
     public int getId() {

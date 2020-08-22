@@ -14,14 +14,14 @@ public class hibernateController {
         return gift;
     }
 
-    public void save()
+    public void save(String giftName, int ageGroup)
 
     {
         Session session = HibernateConfiguration.getSessionFactory().openSession();
         Transaction transaction = session.getTransaction();
         transaction.begin();
         try {
-            session.save(new Gift(1,"RobotHrobbot",2));
+            session.save(new Gift(1,giftName,ageGroup));
             transaction.commit();
         } catch (Exception exception) {
             transaction.rollback();
