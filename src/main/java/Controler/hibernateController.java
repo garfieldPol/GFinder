@@ -1,6 +1,7 @@
 package Controler;
 
 import Config.HibernateConfiguration;
+import Model.Gender;
 import Model.Gift;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,14 +15,14 @@ public class hibernateController {
         return gift;
     }
 
-    public void save(String giftName, int ageGroup)
+    public void save(String giftName, int ageGroup, Gender gender)
 
     {
         Session session = HibernateConfiguration.getSessionFactory().openSession();
         Transaction transaction = session.getTransaction();
         transaction.begin();
         try {
-            session.save(new Gift(1,giftName,ageGroup));
+            session.save(new Gift(1,giftName,ageGroup, gender));
             transaction.commit();
         } catch (Exception exception) {
             transaction.rollback();

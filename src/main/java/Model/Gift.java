@@ -13,13 +13,18 @@ public class Gift {
     private int id;
     private String giftName;
     private int ageGroup;
+    @Enumerated(EnumType.STRING)
+    Gender gender;
 
     public Gift(int id,
                 String giftName,
-                int ageGroup) {
+                int ageGroup,
+                Gender gender
+    ) {
         this.id = id;
         this.giftName = giftName;
         this.ageGroup = ageGroup;
+        this.gender = gender;
     }
 
     public Gift() {
@@ -50,12 +55,22 @@ public class Gift {
         this.ageGroup = ageGroup;
     }
 
+
+
+
     @Override
     public String toString() {
-        return "gift{" +
+        return "Gift{" +
                 "giftName='" + giftName + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 
+    public Gender getGender() {
+        return gender;
+    }
 
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 }
