@@ -1,5 +1,6 @@
 package Config;
 
+import Model.Gift;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -11,6 +12,7 @@ public class HibernateConfiguration {
     public static SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
+        configuration.addAnnotatedClass(Gift.class);
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                          .applySettings(configuration.getProperties())
                          .build();

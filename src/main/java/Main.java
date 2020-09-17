@@ -17,12 +17,24 @@ public class Main {
         String giftName = "";
         switch (choose) {
             case 1: {
-                System.out.println("Cześć jaki wiek osoby obdarowanej?");
-                int age = scanner.nextInt();
-                if (age >= 1) {
-                    System.out.println(hc.get(1));
+                System.out.println("Szukanie według wieku wpisz - 1 \nSzukanie według płci wpisz - 2 \n");
+                int search = scanner.nextInt();
+                switch (search) {
+                    case 1: {
+                        System.out.println("Wpisz wiek");
+                        int age = scanner.nextInt();
+                        System.out.println(hc.findAllByAgeGroup(age));
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Wybierz płeć \n 1 - Chłopak \n 2 - Dziewczyna \n 3 - Unisex");
+                        System.out.println(hc.findAllByGender(Gender.U));
+                        break;
+                    }
                 }
 
+
+                break;
             }
             case 2: {
                 do {
@@ -32,7 +44,7 @@ public class Main {
                        ageGroup = scanner.nextInt();
 
                    }
-                   else if(addGender == false) {
+                   else if(!addGender) {
                        System.out.println("Jaka płeć? \n Dziewczyna wciśnij - 1 \n Chłopak wciśnij - 2 \n Zabawki dla obu płci wciśnij - 3 ");
                        int maletype = scanner.nextInt();
                        switch (maletype) {
@@ -50,11 +62,8 @@ public class Main {
                        }
 
                        }
-
-
-
                    else if (ageGroup > 0) { System.out.println("Jaki Prezent ? ");
-                        giftName = scanner.nextLine();}
+                        giftName = scanner.next();}
 
 
                 } while(giftName.isEmpty());
