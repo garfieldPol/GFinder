@@ -13,7 +13,7 @@ public class Main {
         Gender male = Gender.M;
         Gender female = Gender.F;
         Gender gender = Gender.U;
-        Boolean addGender = false;
+        boolean addGender = false;
         String giftName = "";
         switch (choose) {
             case 1: {
@@ -28,14 +28,23 @@ public class Main {
                     }
                     case 2: {
                         System.out.println("Wybierz płeć \n 1 - Chłopak \n 2 - Dziewczyna \n 3 - Unisex");
-                        System.out.println(hc.findAllByGender(Gender.U));
+                        int genderType = scanner.nextInt();
+                        if(genderType == 1) {
+                            System.out.println(hc.findAllByGender(Gender.M));
+                        } else if(genderType == 2) {
+                            System.out.println(hc.findAllByGender(Gender.F));
+                        } else if(genderType == 3) {
+                            System.out.println(hc.findAllByGender(Gender.U));
+                        }
+                        }
+
                         break;
                     }
                 }
 
 
                 break;
-            }
+
             case 2: {
                 do {
 
